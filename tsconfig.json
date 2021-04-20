@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "jsx": "react", // Whether to support JSX in .tsx files
+    //"outDir": "./build", // Represents the output directory.
+    //"target": "es5", // Represents the target ECMAScript version to transpile our code down to 
+    //"module": "commonjs", // Generates module code.
+    //"sourceMap": true, // Generates a .map file, which can be very useful for debugging the app.
+    "noImplicitAny": true, // Raises errors for declarations with an implied any type.
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // The standard typing to be included in the type checking process. Have chosen to use the types for the browsers DOM as well as the latest version of ECMAScript.
+    "strict": true, // This sets the level of type checking to very high. When this is true, the project is said to be running in strict mode.
+    "removeComments": true, // All comments removed
+    "allowJs": true, // Whether to allow JavaScript files to be compiled.
+    "allowSyntheticDefaultImports": true, // This allows default imports from modules with no default export in the type checking process.
+    "skipLibCheck": true, // Whether to skip type checking of all the type declaration files (*.d.ts).
+    "esModuleInterop": true, // This enables compatibility with Babel.
+    "forceConsistentCasingInFileNames": true, // Ensures that the casing of referenced file names is consistent during the type checking process.
+    "moduleResolution": "node", // How module dependencies get resolved, which is node for our project.
+    "resolveJsonModule": true, // This allows modules to be in .json files which are useful for configuration files.
+    "noEmit": true // Whether to suppress TypeScript generating code during the compilation process. This is true in our project because Babel will be generating the JavaScript code.
+    //"isolatedModules": true,                  // 
+  },
+  "include": [
+    "src",
+    "index.d.tsx"
+  ] // These are the files and folders for TypeScript to check.
+}
