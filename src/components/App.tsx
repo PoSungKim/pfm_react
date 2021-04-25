@@ -1,9 +1,8 @@
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import React, { ReactElement, useEffect } from 'react';
-import shinImg from "../assets/images/shinhan_logo.jpeg";
-import './index.scss';
-import 'normalize.css';
 
 import axios from 'axios';
+import AppRouter from "../utils/routers/AppRouter";
 
 interface User {
     model?: string;
@@ -17,14 +16,38 @@ interface UserInfo {
 }
 
 const getUsers = () => {
-    axios.get<User[]>("http://localhost:8000/api/user/", {
+    axios<User[]>("http://localhost:8080/api/user/1", {
+        method: "GET",
         headers: {
-            "Content-Type": "application/json"
+            'Accept': 'application/json',
+            "Content-Type": "application/json;charset=UTF-8;"
         },
     }).then(response => {
         console.log(response.data);
+    }).catch(error => {
+        console.log(error);
     });
 }
+
+interface User2 {
+    value?: string;
+}
+
+const getUsers2 = async () => {
+    let response = await fetch<User2[]>("http://localhost:8080/api/user/", {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            value: "value"
+        })
+    });
+
+    let jsonData = await response.json();
+    console.log(jsonData)
+};
 
 
 
@@ -32,16 +55,14 @@ const App: React.FC = (): ReactElement => {
 
     useEffect(() => {
         getUsers();
+        getUsers2();
         return () => {
 
         };
     }, []);
 
     return (
-        <div>
-            <h1>My React and TypeScript App!</h1>
-            <img src={`${shinImg}`} alt="" />
-        </div>
+        <AppRouter />
     )
 };
 

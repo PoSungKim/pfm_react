@@ -105,6 +105,7 @@ module.exports = (env: envProps) => {
       compress: true,
       overlay: true,  // 에러가 브라우져에 나옴
       port: 4000,
+      historyApiFallback: true,
     },
     plugins: [
       new MiniCssExtractPlugin({

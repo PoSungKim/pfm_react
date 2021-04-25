@@ -1,6 +1,14 @@
-$body-color: yellow;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+$body-color: black;
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
 h1 {
     background: $body-color;
-    color: blue;
+    text-align: center;
+    color: white;
+    padding: 15px 10px;
 };
