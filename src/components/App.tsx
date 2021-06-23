@@ -16,7 +16,7 @@ interface UserInfo {
 }
 
 const getUsers = () => {
-    axios<User[]>("http://localhost:8080/api/user/1", {
+    axios("http://localhost:8080/api/user/1", {
         method: "GET",
         headers: {
             'Accept': 'application/json',
@@ -34,14 +34,15 @@ interface User2 {
 }
 
 const getUsers2 = async () => {
-    let response = await fetch<User2[]>("http://localhost:8080/api/user/", {
-        method: 'POST',
+    let response = await fetch("http://localhost:8080/api/user/1", {
+        method: 'PUT',
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            value: "value"
+            value: "value",
+            value2: "value2"
         })
     });
 
@@ -54,7 +55,7 @@ const getUsers2 = async () => {
 const App: React.FC = (): ReactElement => {
 
     useEffect(() => {
-        getUsers();
+        //getUsers();
         getUsers2();
         return () => {
 
